@@ -1,1 +1,5 @@
 *         @saic-oss/evtr
+
+# Don't change me! Compliance team is the owner of these files
+/.github/         @saic-oss/compliance
+/Taskfile.yaml    @saic-oss/compliance
