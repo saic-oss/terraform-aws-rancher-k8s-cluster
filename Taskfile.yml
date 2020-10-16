@@ -3,7 +3,8 @@
 version: "2"
 
 tasks:
-  example:
-    desc: Example to show the formatting of a task
+  validatePreCommitHooks:
+    desc: Validate the pre-commit hooks
     cmds:
-      - echo "Peter Piper picked a peck of pickled peppers"
+      - pre-commit install
+      - pre-commit run -a
