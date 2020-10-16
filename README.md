@@ -56,7 +56,7 @@ The purpose of this module is to give an easy to create a new "worker" Kubernete
 
 The complete example requires 2 terraform applies due to dependency issues with the subnets being generated. For convenience, a Taskfile has been provided, to be used with [go-task][go-task]
 
-```
+```sh
 task applyExample
 task destroyExample
 ```
