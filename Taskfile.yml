@@ -1,0 +1,9 @@
+# https://taskfile.dev
+
+version: "2"
+
+tasks:
+  example:
+    desc: Example to show the formatting of a task
+    cmds:
+      - echo "Peter Piper picked a peck of pickled peppers"
