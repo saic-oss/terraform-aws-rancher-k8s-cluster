@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: "2"
+
+tasks:
+  applyExample:
+    dir: examples/complete
+    desc: Apply the example infra
+    cmds:
+      - terraform apply -auto-approve -input=false -target=module.subnets
+      - terraform apply -auto-approve -input=false
+
+  destroyExample:
+    dir: examples/complete
+    desc: Destroy the example infra
+    cmds:
+      - terraform destroy -auto-approve -input=false -target=module.rancher-k8s-cluster.rancher2_cluster.default
+      - terraform destroy -auto-approve -input=false

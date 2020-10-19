@@ -1,0 +1,7 @@
+helmfiles:
+  - path: "subhelmfiles/cert-manager-crd.helmfile.yaml"
+  - path: "subhelmfiles/cert-manager.helmfile.yaml"
+  - path: "subhelmfiles/cert-manager-clusterissuer.helmfile.yaml"
+  - path: "subhelmfiles/efs-provisioner.helmfile.yaml"
+
+missingFileHandler: Error

@@ -1,0 +1,40 @@
+repositories:
+  - name: stable
+    url: https://kubernetes-charts.storage.googleapis.com
+
+missingFileHandler: Error
+
+releases:
+  - name: "efs-provisioner"
+    namespace: "efs-provisioner"
+    labels:
+      chart: "efs-provisioner"
+      repo: "stable"
+      namespace: "efs-provisioner"
+      vendor: "stable"
+    chart: "stable/efs-provisioner"
+    version: "0.12.1"
+    wait: true
+    atomic: true
+    cleanupOnFail: true
+    values:
+      - global:
+          deployEnv: prod
+        efsProvisioner:
+          efsFileSystemId: {{ requiredEnv "EFS_FILE_SYSTEM_ID" | quote }}
+          awsRegion: {{ requiredEnv "AWS_REGION" | quote }}
+          storageClass:
+            name: efs
+            isDefault: true
+            gidAllocate:
+              enabled: true
+              gidMin: 30000
+              gidMax: 50000
+            reclaimPolicy: Delete
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "10"
+            memory: "512Mi"
