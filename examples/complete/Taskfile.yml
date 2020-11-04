@@ -3,16 +3,24 @@
 version: "2"
 
 tasks:
-  applyExample:
-    dir: examples/complete
+  init:
+    desc: Run terraform init
+    cmds:
+      - terraform init
+
+  plan:
+    desc: Plan the example infra
+    cmds:
+      - terraform plan -input=false -var-file=override.tfvars
+
+  apply:
     desc: Apply the example infra
     cmds:
-      - terraform apply -auto-approve -input=false -target=module.subnets
-      - terraform apply -auto-approve -input=false
+      - terraform apply -auto-approve -input=false -var-file=override.tfvars -target=module.subnets
+      - terraform apply -auto-approve -input=false -var-file=override.tfvars
 
-  destroyExample:
-    dir: examples/complete
+  destroy:
     desc: Destroy the example infra
     cmds:
-      - terraform destroy -auto-approve -input=false -target=module.rancher-k8s-cluster.rancher2_cluster.default
-      - terraform destroy -auto-approve -input=false
+      - terraform destroy -auto-approve -input=false -var-file=override.tfvars -target=module.rancher-k8s-cluster.rancher2_cluster.default
+      - terraform destroy -auto-approve -input=false -var-file=override.tfvars
