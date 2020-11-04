@@ -52,6 +52,8 @@ The purpose of this module is to give an easy to create a new "worker" Kubernete
 
 ### Instructions
 
+#### Complete Example
+
 See [examples/complete](examples/complete) for an example of how to use this module. For your convenience a Taskfile has been provided to be used with [go-task][go-task].
 
 ```sh
