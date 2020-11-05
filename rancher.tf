@@ -23,8 +23,9 @@ resource "rancher2_cluster_sync" "default" {
 }
 
 resource "local_file" "kubeconfig" {
-  filename = "${path.module}/tmp/kubeconfig_${module.label.id}.yaml"
-  content  = rancher2_cluster_sync.default.kube_config
+  filename        = "${path.module}/tmp/kubeconfig_${module.label.id}.yaml"
+  content         = rancher2_cluster_sync.default.kube_config
+  file_permission = "0644"
   depends_on = [
     rancher2_cluster_sync.default
   ]
