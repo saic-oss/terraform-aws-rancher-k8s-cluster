@@ -54,12 +54,17 @@ The purpose of this module is to give an easy to create a new "worker" Kubernete
 
 #### Complete Example
 
-The complete example requires 2 terraform applies due to dependency issues with the subnets being generated. For convenience, a Taskfile has been provided, to be used with [go-task][go-task]
+See [examples/complete](examples/complete) for an example of how to use this module. For your convenience a Taskfile has been provided to be used with [go-task][go-task].
 
 ```sh
-task applyExample
-task destroyExample
+cd examples/complete
+task init
+task plan
+task apply
+task destroy
 ```
+
+> There are a few parameters that are specific to your AWS account and your domain name you want to use that are not included in the example `terraform.tfvars`. You should create a `override.tfvars` file and add the missing parameters to that.
 
 #### Provider config
 
@@ -145,23 +150,26 @@ This module will use SemVer, and will stay on v0.X for the foreseeable future
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.13.0, < 0.14.0 |
-| aws | >= 2.0.0, < 3.0.0 |
-| rancher2 | >= 1.0.0, < 2.0.0 |
-| random | >= 2.0.0, < 3.0.0 |
-| tls | >= 2.0.0, < 3.0.0 |
+| terraform | >= 0.13.0 |
+| aws | >= 2.0.0 |
+| local | >= 1.0.0 |
+| null | >= 2.0.0 |
+| rancher2 | >= 1.0.0 |
+| random | >= 2.0.0 |
+| template | >= 2.0.0 |
+| tls | >= 2.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.0.0, < 3.0.0 |
-| local | n/a |
-| null | n/a |
-| rancher2.admin | >= 1.0.0, < 2.0.0 |
-| random | >= 2.0.0, < 3.0.0 |
-| template | n/a |
-| tls | >= 2.0.0, < 3.0.0 |
+| aws | >= 2.0.0 |
+| local | >= 1.0.0 |
+| null | >= 2.0.0 |
+| rancher2.admin | >= 1.0.0 |
+| random | >= 2.0.0 |
+| template | >= 2.0.0 |
+| tls | >= 2.0.0 |
 
 ## Inputs
 

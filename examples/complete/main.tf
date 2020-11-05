@@ -44,7 +44,7 @@ module "vpc" {
 }
 
 module "subnets" {
-  source               = "git::https://github.com/cloudposse/terraform-aws-dynamic-subnets.git?ref=tags/0.27.0"
+  source               = "git::https://github.com/cloudposse/terraform-aws-dynamic-subnets.git?ref=tags/0.31.0"
   availability_zones   = var.availability_zones
   namespace            = var.namespace
   stage                = var.stage
@@ -60,7 +60,7 @@ module "subnets" {
 }
 
 module "rke_rancher_master_cluster" {
-  source                          = "git::https://github.com/saic-oss/terraform-aws-rke-rancher-master-cluster.git?ref=tags/0.1.0"
+  source                          = "git::https://github.com/saic-oss/terraform-aws-rke-rancher-master-cluster.git?ref=tags/0.3.0"
   additional_tag_map              = {}
   instance_type                   = var.controlplane_instance_type
   kubernetes_version              = var.master_cluster_kubernetes_version
@@ -91,6 +91,7 @@ module "rke_rancher_master_cluster" {
 }
 
 module "rancher-k8s-cluster" {
+  //source                   = "git::https://path/to/repo.git?ref=tags/x.y.z"
   source                     = "../.."
   additional_tag_map         = {}
   kubernetes_version         = var.worker_cluster_kubernetes_version

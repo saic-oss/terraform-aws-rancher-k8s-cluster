@@ -1,6 +1,6 @@
-terraform 0.13.4
+terraform 0.13.5
 terraform-docs v0.10.1
-tflint 0.20.2
-tfsec 0.30.1
-helmfile 0.131.0
-helm 3.3.4
+tflint 0.20.3
+tfsec 0.36.0
+helmfile 0.132.1
+helm 3.4.0
