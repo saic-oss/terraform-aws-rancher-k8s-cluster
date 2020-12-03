@@ -15,6 +15,9 @@ resource "rancher2_cluster_sync" "default" {
   cluster_id      = rancher2_cluster.default.id
   state_confirm   = 36
   wait_monitoring = false
+  timeouts {
+    create = "60m"
+  }
   depends_on = [
     aws_autoscaling_group.worker,
     aws_autoscaling_group.controlplane,
