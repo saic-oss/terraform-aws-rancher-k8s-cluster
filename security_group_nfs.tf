@@ -21,4 +21,6 @@ resource "aws_security_group" "nfs" {
     protocol    = "tcp"
     cidr_blocks = values(data.aws_subnet.default)[*].cidr_block
   }
+
+  tags = module.label.tags
 }

@@ -177,14 +177,17 @@ This module will use SemVer, and will stay on v0.X for the foreseeable future
 |------|-------------|------|---------|:--------:|
 | additional\_tag\_map | Map of additional tags to apply to every taggable resource. If you don't want any use an empty map - '{}' | `map(string)` | n/a | yes |
 | controlplane\_instance\_type | Instance type of the control plane nodes | `string` | n/a | yes |
+| description | Short description of what/why this product exists | `string` | n/a | yes |
 | enable\_detailed\_monitoring | If true, the launched EC2 instances will have detailed monitoring enabled | `bool` | n/a | yes |
 | kubernetes\_version | Kubernetes version to use. See the Kubernetes Version dropdown in the Add Cluster - Custom view in Rancher for the available options | `string` | n/a | yes |
 | letsencrypt\_email | Email address to use for LetsEncrypt certs | `string` | n/a | yes |
 | name | Solution name | `string` | n/a | yes |
 | namespace | Namespace, which could be your organization name or abbreviation | `string` | n/a | yes |
 | node\_volume\_size | Volume size of worker node disk in GB | `string` | n/a | yes |
+| owner | Email address of owner | `string` | n/a | yes |
 | protect\_from\_scale\_in | If true, AutoScaling Group protect\_from\_scale\_in will be set to true. This should be true in production, but it will prevent you from destroying the stack since the ASG will get stuck waiting for instances to be manually terminated | `bool` | n/a | yes |
 | region | Region you are deploying to | `string` | n/a | yes |
+| repo | Repo URL that is responsible for this resource | `string` | n/a | yes |
 | stage | Stage, e.g. 'prod', 'staging', 'dev' | `string` | n/a | yes |
 | subnet\_ids | List of subnet IDs to deploy into | `list(string)` | n/a | yes |
 | vpc\_id | ID of the VPC to deploy to | `string` | n/a | yes |
