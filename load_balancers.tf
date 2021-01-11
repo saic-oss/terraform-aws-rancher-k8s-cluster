@@ -31,4 +31,6 @@ resource "aws_elb" "ingress" { #tfsec:ignore:AWS005
   depends_on = [
     rancher2_cluster.default
   ]
+
+  tags = module.label.tags
 }

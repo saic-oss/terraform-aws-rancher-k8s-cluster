@@ -60,8 +60,9 @@ module "subnets" {
 }
 
 module "rke_rancher_master_cluster" {
-  source                          = "git::https://github.com/saic-oss/terraform-aws-rke-rancher-master-cluster.git?ref=tags/0.4.0"
+  source                          = "git::https://github.com/saic-oss/terraform-aws-rke-rancher-master-cluster.git?ref=tags/0.4.1"
   additional_tag_map              = {}
+  description                     = var.description
   instance_type                   = var.controlplane_instance_type
   kubernetes_version              = var.master_cluster_kubernetes_version
   name                            = var.name
@@ -70,6 +71,8 @@ module "rke_rancher_master_cluster" {
   node_group_2_subnet_id          = module.subnets.public_subnet_ids[1]
   node_group_3_subnet_id          = module.subnets.public_subnet_ids[2]
   node_volume_size                = var.node_volume_size
+  owner                           = var.owner
+  repo                            = var.repo
   stage                           = var.stage
   vpc_id                          = module.vpc.vpc_id
   hosted_zone_id                  = var.hosted_zone_id
@@ -94,9 +97,12 @@ module "rancher-k8s-cluster" {
   //source                   = "git::https://path/to/repo.git?ref=tags/x.y.z"
   source                     = "../.."
   additional_tag_map         = {}
+  description                = var.description
   kubernetes_version         = var.worker_cluster_kubernetes_version
   name                       = "${var.name}-workload"
   namespace                  = var.namespace
+  owner                      = var.owner
+  repo                       = var.repo
   stage                      = var.stage
   region                     = var.region
   letsencrypt_email          = var.letsencrypt_email

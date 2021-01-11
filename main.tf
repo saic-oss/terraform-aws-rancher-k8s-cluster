@@ -20,4 +20,10 @@ module "label" {
   stage              = var.stage
   name               = var.name
   additional_tag_map = var.additional_tag_map
+
+  tags = {
+    "Repo"        = "${var.repo}",
+    "Owner"       = "${var.owner}",
+    "Description" = "${var.description}"
+  }
 }

@@ -49,6 +49,11 @@ resource "aws_launch_template" "controlplane" {
     delete_on_termination       = true
     security_groups             = [aws_security_group.nodes.id]
   }
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = module.label.tags
+  }
   user_data              = base64encode(data.template_file.controlplane_userdata.rendered)
   update_default_version = true
   depends_on = [
@@ -87,6 +92,11 @@ resource "aws_launch_template" "worker" {
     associate_public_ip_address = true
     delete_on_termination       = true
     security_groups             = [aws_security_group.nodes.id]
+  }
+  tag_specifications {
+    resource_type = "instance"
+
+    tags = module.label.tags
   }
   user_data              = base64encode(data.template_file.worker_userdata.rendered)
   update_default_version = true

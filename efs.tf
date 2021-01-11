@@ -1,8 +1,7 @@
 resource "aws_efs_file_system" "default" {
   throughput_mode = "bursting"
-  tags = {
-    "Name" = module.label.id
-  }
+  encrypted       = true
+  tags            = module.label.tags
 }
 
 resource "aws_efs_mount_target" "default" {
